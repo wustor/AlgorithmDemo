@@ -9,8 +9,10 @@ package com.company;
 import java.util.Stack;
 
 /**
- * 1.申请一个栈，命名为helpStack
- * 2.将已有的栈弹
+ * 1.申请一个栈，命名为orderStack
+ * 2.将normalStack弹出，如果大于orderStack的栈顶元素，压栈
+ * 3.如果小于orderStack的栈顶元素，则orderStack弹栈至normalStack
+ * 直到orderStack的栈顶元素小于normalStack
  */
 
 public class StackOrder {
