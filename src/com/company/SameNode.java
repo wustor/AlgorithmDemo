@@ -14,7 +14,7 @@ package com.company;
 
 public class SameNode {
 
-    public class Node {
+    public static class Node {
         private Integer value;
         private Node next;
 
@@ -27,53 +27,49 @@ public class SameNode {
         if (first == null || second == null)
             throw new IllegalArgumentException("链表为空");
 
-        Integer firstValue = first.value;
-        Integer secondValue = second.value;
-        int result = firstValue.compareTo(secondValue);
-        Integer same = null;
-        Node current = null;
-        switch (result) {
-            case -1://first<second
-                current = first;
-                while (current.value.compareTo(secondValue) != 0) {
-                    current = current.next;
-                }
-                same = current.value;
-                System.out.println(same.intValue());
-                while (current.next != null && second.next != null) {
-                    System.out.println(current.value.intValue());
-                    current = current.next;
-                    second = second.next;
-                }
-
-                break;
-            case 0://first=second
-                same = firstValue;
-                System.out.println(same.intValue());
-                while (first.next != null && second.next != null) {
-                    System.out.println(first.value.intValue());
+        while (first != null && second != null) {
+            int result = first.value.compareTo(second.value);
+            switch (result) {
+                case -1:
+                    first = first.next;
+                    break;
+                case 0:
+                    System.out.println(first.value);
                     first = first.next;
                     second = second.next;
-                }
-                break;
-            case 1://first>second
-                current = second;
-                while (current.value.compareTo(firstValue) != 0) {
-                    current = current.next;
-                }
-                same = current.value;
-                System.out.println(same.intValue());
-                while (current.next != null && first.next != null) {
-                    System.out.println(current.value.intValue());
-                    current = current.next;
+                    break;
+                case 1:
                     second = second.next;
-                }
-                break;
+                    break;
+            }
 
         }
 
 
     }
 
+    public void printNode(Node node){
+        while (node!=null){
+            System.out.println(node.value);
+            node=node.next;
+        }
+
+    }
+
+    public static void main(String[] args) {
+
+        Node node=new Node(2);
+        node.next=new Node(3);
+        node.next.next=new Node(8);
+        node.next.next.next=new Node(10);
+        SameNode sameNode=new SameNode();
+        //sameNode.printNode(node);
+        Node node1=new Node(2);
+        node1.next=new Node(3);
+        //sameNode.printNode(node1);
+        sameNode.findSame(node,node1);
+
+
+    }
 
 }
