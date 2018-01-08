@@ -44,6 +44,14 @@ package com.company;
  * 1.遍历Node，记录链表的Node节点N
  * 2.将倒数第K个节点转化为正数的N-1-K
  * 3.遍历Node，到N-1-K处停止，删除当前节点
+ * <p>
+ * 1.遍历Node，记录链表的Node节点N
+ * 2.将倒数第K个节点转化为正数的N-1-K
+ * 3.遍历Node，到N-1-K处停止，删除当前节点
+ * <p>
+ * 1.遍历Node，记录链表的Node节点N
+ * 2.将倒数第K个节点转化为正数的N-1-K
+ * 3.遍历Node，到N-1-K处停止，删除当前节点
  */
 
 //单链表
@@ -78,7 +86,7 @@ public class DeleteKNode {
         if (number > nodeCount - 1)
             throw new RuntimeException("删除节点数大于Node节点数");
 
-        int deleteCount = nodeCount - number - 1;
+        int deleteCount = nodeCount - number;
         nodeCount = 0;
         while (first != null) {
             if (++nodeCount == deleteCount) {
@@ -104,7 +112,7 @@ public class DeleteKNode {
             node = node.next;
         }
 
-        if (number > nodeCount - 1)
+        if (number > nodeCount)
             throw new RuntimeException("删除节点数大于Node节点数");
         int count = 0;
         while (node != null) {
