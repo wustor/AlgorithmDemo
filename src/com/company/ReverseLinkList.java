@@ -8,28 +8,24 @@ package com.company;
 
 /**
  * 1.递归遍历链表
- * 2.
+ * 2.归的过程解决问题
  */
 
 public class ReverseLinkList {
-    private static Node last;
 
-    public static void reverseNode(Node node) {
+    public static Node reverseNode(Node node) {
 
         Node current = node;
 
-        if (node == null) {
+        if (node.next == null) {
+            return node;
 
         } else {
             node = node.next;
-            reverseNode(node);
-            if (node != null) {
-                node.next = current;
-                current.next = null;
-            } else {
-                last = current;
-            }
-
+            Node node1 = reverseNode(node);
+            node.next = current;
+            current.next = null;
+            return node1;
 
         }
 
@@ -43,8 +39,8 @@ public class ReverseLinkList {
         node.next.next = new Node(8);
         node.next.next.next = new Node(6);
         node.next.next.next.next = new Node(7);
-        reverseNode(node);
-        NodeUtils.printNode(last);
+        Node node1 = reverseNode(node);
+        NodeUtils.printNode(node1);
 
     }
 }
