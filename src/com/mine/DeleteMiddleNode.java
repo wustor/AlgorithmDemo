@@ -6,6 +6,9 @@ package com.mine;
  * email fat_chao@163.com.
  */
 
+import com.utils.Node;
+import com.utils.NodeUtils;
+
 /**
  * 采用递归进行实现，在归的过程中解决问题
  * 1.递归遍历链表的Node
@@ -35,11 +38,7 @@ public class DeleteMiddleNode {
 
 
     public static void main(String[] args) {
-        Node node = new Node(2);
-        node.next = new Node(3);
-        node.next.next = new Node(8);
-        node.next.next.next = new Node(6);
-        node.next.next.next.next = new Node(7);
+        Node node = NodeUtils.getNode();
         DeleteMiddleNode deleteMiddleNode = new DeleteMiddleNode();
         deleteMiddleNode.deleteMiddle(node);
     }

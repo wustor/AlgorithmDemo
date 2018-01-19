@@ -63,6 +63,8 @@ package com.mine;
  */
 //双链表
 
+import com.utils.Node;
+
 /**
  * 1.将节点移动到链表的尾部
  * 2.然后定义一个标记位

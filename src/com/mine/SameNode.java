@@ -6,6 +6,8 @@ package com.mine;
  * 邮箱  fat_chao@163.com
  */
 
+import com.utils.Node;
+
 /**
  * 1.比较两个Node的头结点
  * 2.然后遍历头结点小的那个，找到他们相等
@@ -14,14 +16,6 @@ package com.mine;
 
 public class SameNode {
 
-    public static class Node {
-        private Integer value;
-        private Node next;
-
-        public Node(Integer value) {
-            this.value = value;
-        }
-    }
 
     public void findSame(Node first, Node second) {
         if (first == null || second == null)
@@ -48,26 +42,26 @@ public class SameNode {
 
     }
 
-    public void printNode(Node node){
-        while (node!=null){
+    public void printNode(Node node) {
+        while (node != null) {
             System.out.println(node.value);
-            node=node.next;
+            node = node.next;
         }
 
     }
 
     public static void main(String[] args) {
 
-        Node node=new Node(2);
-        node.next=new Node(3);
-        node.next.next=new Node(8);
-        node.next.next.next=new Node(10);
-        SameNode sameNode=new SameNode();
+        Node node = new Node(2);
+        node.next = new Node(3);
+        node.next.next = new Node(8);
+        node.next.next.next = new Node(10);
+        SameNode sameNode = new SameNode();
         //sameNode.printNode(node);
-        Node node1=new Node(2);
-        node1.next=new Node(3);
+        Node node1 = new Node(2);
+        node1.next = new Node(3);
         //sameNode.printNode(node1);
-        sameNode.findSame(node,node1);
+        sameNode.findSame(node, node1);
 
 
     }

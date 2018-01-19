@@ -1,4 +1,4 @@
-package com.mine;
+package com.utils;
 
 /**
  * author chmyy
@@ -15,4 +15,8 @@ public class Node {
     public Node(Integer value) {
         this.value = value;
     }
+
+
+
+
 }

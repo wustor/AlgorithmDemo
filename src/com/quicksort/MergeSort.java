@@ -1,6 +1,8 @@
 package com.quicksort;
 
-import java.util.*;
+import com.InsertSort.InsertionSort;
+
+import java.util.Arrays;
 
 public class MergeSort{
 

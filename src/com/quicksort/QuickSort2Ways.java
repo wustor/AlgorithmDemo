@@ -1,5 +1,7 @@
 package com.quicksort;
 
+import com.InsertSort.InsertionSort;
+
 public class QuickSort2Ways {
 
     // 我们的算法类不允许产生任何实例

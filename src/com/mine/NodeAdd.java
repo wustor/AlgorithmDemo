@@ -6,6 +6,9 @@ package com.mine;
  * email fat_chao@163.com.
  */
 
+import com.utils.Node;
+import com.utils.NodeUtils;
+
 /**
  * 1.遍历Node，然后拿到数值,最终转化成int
  * 2.然后相加，最后分解
