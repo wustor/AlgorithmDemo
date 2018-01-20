@@ -17,21 +17,17 @@ public class DeleteParticularNode {
         if (node == null)
             throw new NullPointerException("Node不能为空");
 
-        if (value.equals(node.value)) {
+        while (node != null && value.equals(node.value)) {
             node = node.next;
         }
 
         Node temp = node;
-        Node pre = null;
+        Node pre = node;
         while (temp != null) {
-
             if (value.equals(temp.value)) {
-
-                if (pre != null)
-                    pre.next = temp.next;
-
-            }
-            pre = temp;
+                pre.next = temp.next;
+            } else
+                pre = temp;
             temp = temp.next;
 
         }
@@ -40,7 +36,8 @@ public class DeleteParticularNode {
     }
 
     public static void main(String[] args) {
-        Node node = NodeUtils.getNode();
+        Integer[] arr = new Integer[]{3, 3, 3, 4, 4, 2, 1, 1};
+        Node node = NodeUtils.getNode(arr);
         NodeUtils.printNode(node);
         System.out.println();
         Node node1 = deleteNode(node, 3);

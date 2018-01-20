@@ -65,7 +65,8 @@ public class DeleteDuplicateNode {
 
 
     public static void main(String[] args) {
-        Node node = NodeUtils.getRepeatNode();
+        Integer[] arr=new Integer[]{1,2,3,3,4,4,2,1,1};
+        Node node = NodeUtils.getNode(arr);
         NodeUtils.printNode(node);
         System.out.println();
         Node result = deleteDuplicate(node);

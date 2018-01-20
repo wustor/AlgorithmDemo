@@ -38,7 +38,8 @@ public class DeleteMiddleNode {
 
 
     public static void main(String[] args) {
-        Node node = NodeUtils.getNode();
+        Integer[] integers = new Integer[]{1, 3, 8, 6, 7};
+        Node node = NodeUtils.getNode(integers);
         DeleteMiddleNode deleteMiddleNode = new DeleteMiddleNode();
         deleteMiddleNode.deleteMiddle(node);
     }

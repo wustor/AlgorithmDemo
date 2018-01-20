@@ -18,27 +18,20 @@ public class NodeUtils {
     }
 
     public static Node getNode(Integer[] arr) {
+        Node node = null;
+        Node temp = null;
         for (Integer integer : arr) {
+            if (node == null) {
+                node = new Node(integer);
+                temp = node;
+
+            } else {
+                temp.next = new Node(integer);
+                temp = temp.next;
+            }
 
         }
-        Node node = new Node(1);
-        node.next = new Node(3);
-        node.next.next = new Node(8);
-        node.next.next.next = new Node(6);
-        node.next.next.next.next = new Node(7);
-        return node;
-    }
 
-    public static Node getRepeatNode() {
-        Node node = new Node(1);
-        node.next = new Node(2);
-        node.next.next = new Node(3);
-        node.next.next.next = new Node(3);
-        node.next.next.next.next = new Node(4);
-        node.next.next.next.next.next = new Node(4);
-        node.next.next.next.next.next.next = new Node(2);
-        node.next.next.next.next.next.next.next = new Node(1);
-        node.next.next.next.next.next.next.next.next = new Node(1);
         return node;
     }
 
