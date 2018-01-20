@@ -24,14 +24,14 @@ public class DeleteDuplicateNode {
         }
 
         Node newNode = null;
-        Node temp = null;
+        Node cur = null;
         for (Integer value : hashMap.values()) {
             if (newNode == null) {
                 newNode = new Node(value);
-                temp = newNode;
+                cur = newNode;
             } else {
-                temp.next = new Node(value);
-                temp = temp.next;
+                cur.next = new Node(value);
+                cur = cur.next;
 
             }
         }
@@ -46,16 +46,16 @@ public class DeleteDuplicateNode {
         while (firstNode != null) {
             //删除链表中的重复的单个元素
             Integer value = firstNode.value;
-            Node temp = firstNode;
-            while (temp != null) {
-                if (temp.next != null && temp.next.value.equals(value)) {
-                    Node next = temp.next;
-                    temp.next = next.next;
+            Node cur = firstNode.next;
+            Node pre = firstNode;
+            while (cur != null) {
+                if (cur.value.equals(value)) {
+                    pre.next = cur.next;
                 }
-                temp = temp.next;
+                pre = cur;
+                cur = cur.next;
 
             }
-
             firstNode = firstNode.next;
 
         }
@@ -68,7 +68,7 @@ public class DeleteDuplicateNode {
         Node node = NodeUtils.getRepeatNode();
         NodeUtils.printNode(node);
         System.out.println();
-        Node result = deleteRepeat(node);
+        Node result = deleteDuplicate(node);
         NodeUtils.printNode(result);
     }
 

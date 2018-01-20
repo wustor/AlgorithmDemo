@@ -17,8 +17,11 @@ public class NodeUtils {
 
     }
 
-    public static Node getNode() {
-        Node node = new Node(2);
+    public static Node getNode(Integer[] arr) {
+        for (Integer integer : arr) {
+
+        }
+        Node node = new Node(1);
         node.next = new Node(3);
         node.next.next = new Node(8);
         node.next.next.next = new Node(6);
