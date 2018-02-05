@@ -10,8 +10,8 @@ import com.utils.Node;
 import com.utils.NodeUtils;
 
 /**
- * 1.遍历Node，然后拿到数值,最终转化成int
- * 2.然后相加，最后分解
+ * 1.逆序两个链表
+ * 2.然后相加，判断是否需要进位
  */
 
 
@@ -19,61 +19,65 @@ class NodeAdd {
 
     public static Node add(Node first, Node second) {
 
-        int a = 0;
-        int b = 0;
-        int c = 0;
-        Node head = null;
-        StringBuilder sbFirst = null;
-        StringBuilder sbSecond = null;
-        while (first != null) {
-            if (sbFirst == null) {
-                sbFirst = new StringBuilder();
-            }
-            sbFirst.append(first.value.intValue());
-            first = first.next;
-        }
-
-        while (second != null) {
-            if (sbSecond == null) {
-                sbSecond = new StringBuilder();
-            }
-            sbSecond.append(second.value.intValue());
-            second = second.next;
-        }
-
-        if (sbFirst != null)
-            a = Integer.valueOf(sbFirst.toString());
-        if (sbSecond != null)
-            b = Integer.valueOf(sbSecond.toString());
-
-        c = a + b;
-        String value = String.valueOf(c);
-        for (int i = 0; i < value.length(); i++) {
-            Integer integer = Integer.valueOf(String.valueOf(value.charAt(i)));
-            if (head == null) {
-                head = new Node(integer);
+        Node firstNode = ReverseLinkList.reverseNode(first);
+        NodeUtils.printNode(firstNode);
+        System.out.println();
+        Node secondNode = ReverseLinkList.reverseNode(second);
+        NodeUtils.printNode(secondNode);
+        Node node = new Node(null);
+        Integer left = 0;
+        while (firstNode != null && secondNode != null) {
+            Integer result = firstNode.value + secondNode.value;
+            result += left;
+            if (result >= 10) {
+                left = result - 10;
+                result -= 10;
             } else {
-                Node temp = head;
-                while (temp.next != null) {
-                    temp = temp.next;
-                }
-                temp.next = new Node(integer);
+                left = 0;
+
             }
 
+            if (node.value == null) {
+                node.value = result;
+            } else
+                insertNode(node, new Node(result));
 
+            firstNode = firstNode.next;
+            secondNode = secondNode.next;
         }
 
-        return head;
+        if (firstNode == null) {
+            insertNode(node, secondNode);
+        } else {
+            insertNode(node, firstNode);
+        }
+
+        return node;
+
+    }
+
+    public static void insertNode(Node head, Node insert) {
+
+        if (head == null)
+            throw new RuntimeException("链表头部不能为空");
+        Node temp = head;
+        while (temp.next != null)
+            temp = temp.next;
+        temp.next = insert;
+
     }
 
     public static void main(String[] args) {
-        Node node = new Node(9);
+        Node node = new Node(1);
         node.next = new Node(3);
         node.next.next = new Node(7);
-        Node node1 = new Node(6);
-        node1.next = new Node(3);
+        Node node1 = new Node(3);
+        node1.next = new Node(2);
         Node add = add(node, node1);
-        NodeUtils.printNode(add);
+
+        Node node2 = ReverseLinkList.reverseNode(add);
+        System.out.println();
+        NodeUtils.printNode(node2);
     }
 
 }
