@@ -1,10 +1,10 @@
-package com.quicksort;
+package com.writing;
 
 import com.InsertSort.InsertionSort;
+import com.quicksort.SortTestHelper;
 
 public class QuickSort {
-
-    // 我们的算法类不允许产生任何实例
+    {}
     private QuickSort(){}
 
     // 对arr[l...r]部分进行partition操作
@@ -23,7 +23,7 @@ public class QuickSort {
                 swap(arr, j, i);
             }
 
-        swap(arr, l, j);
+        swap(arr, j, l);
 
         return j;
     }
